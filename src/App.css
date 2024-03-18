@@ -1,4 +1,15 @@
+.application {
+    display: block;
+    border: 2px solid black;
+    max-width: 600px;
+}
 
+h1 {
+    text-align: center;
+    text-decoration: underline;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
 
 
