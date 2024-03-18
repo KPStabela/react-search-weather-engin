@@ -6,14 +6,16 @@ import Footer from './Footer';
 function App() {
   return (
     <div className="App">
-      <h1>React Weather Search Engine</h1>
-      <div className='container application'>
+      <div className='container justify-content-center'>
+       <h1>React Weather Search Engine</h1>
+        <div className='application'>
+         <Form /> 
         <Weather />
-        <Form />
         <hr />
         <Footer />
+        </div>
+        </div>
       </div> 
-    </div>
   );
 }
 

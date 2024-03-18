@@ -4,8 +4,10 @@ import "./Form.css";
 export default function Form() {
     return (
         <div className="Form">
-           <input type="text" placeholder="Enter city..." />
-           <input type="Submit" />
+         <form>
+           <input type="search" placeholder="Enter a city..." className="field-search" autoFocus="on"/>
+           <input type="Submit" value="Search" className="btn-search btn-primary " />
+         </form>
         </div>  
     );
 }

@@ -8,24 +8,24 @@ export default function Weather() {
             <p>
                 Monday, 6:10am
             </p>
+            <br />
             <div className="row">
                 <div className="col-4">
-                    <div>
-                        <img src="https://r.bing.com/rp/sdSac_zQw5gLMvPI61xKmFWSP1c.svg" alt="Cloud" /> <br />cloudy
-                    </div>
+                    <span>
+                        <img src="https://r.bing.com/rp/sdSac_zQw5gLMvPI61xKmFWSP1c.svg" alt="Cloud" /> <br /> <span className="description">mostly cloudy</span>
+                    </span>
                 </div>
                     <div className="col-4">
-                    <div>
-                        <p>18°C</p>
-                    </div>
+                    <span>
+                        <p className="temp">18<span className="celcius"><a href="/">°C</a> | <a href="/">F</a></span></p>
+                    </span>
                     </div>
                 <div className="col-4">
-                    <div>
-                        <p>Humidity: <strong>93</strong>% <br /> Wind: <strong>64</strong>km/h</p>
-                    </div>
+                    <span>
+                        <p className="deatils">Humidity: <strong>93</strong>% <br /> Wind: <strong>64</strong>km/h</p>
+                    </span>
                 </div>
             </div>
-            <div></div>
         </div>
     );
 }

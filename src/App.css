@@ -1,7 +1,15 @@
+.App {
+    align-items: center;
+}
+
 .application {
-    display: block;
-    border: 2px solid black;
-    max-width: 600px;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin: 30px auto;
+    width: 600px;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 h1 {
@@ -10,6 +18,8 @@ h1 {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+
 
 
 

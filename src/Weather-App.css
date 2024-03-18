@@ -1,0 +1,19 @@
+.Weather h2 {
+    color: rgb(111, 110, 110);
+}
+
+.temp {
+    font-size: 80px;
+    color: rgb(111, 110, 110);
+    line-height: 0.9;    
+}
+
+.celcius {
+    font-size: 20px;
+    vertical-align: 200%;
+}
+
+.temp a {
+    text-decoration: none;
+}
+
