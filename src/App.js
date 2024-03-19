@@ -8,7 +8,7 @@ function App() {
       <div className='container justify-content-center'>
        <h1>React Weather Search Engine</h1>
         <div className='application'>
-        <Weather defaultCity="New York"/>
+        <Weather defaultCity="Orkney"/>
         <hr />
         <Footer />
         </div>

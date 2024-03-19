@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./Weather-App.css"
-import FormattedDate from "./FormattedDate"
+import WeatherInfo from "./WeatherInfo"
 import axios from "axios";
 
 export default function Weather(props) {
     const [weatherData, setWeatherData] = useState({ ready: false });
+    const [city, setCity] = useState(props.defaultCity);
 
     function handleResponse(response) {
         setWeatherData({
@@ -13,50 +14,42 @@ export default function Weather(props) {
             Humidity: response.data.main.humidity,
             Date: new Date(response.data.dt * 1000),
             Description: response.data.weather[0].description,
-            iconUrl: "https://r.bing.com/rp/sdSac_zQw5gLMvPI61xKmFWSP1c.svg",
+            iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
             Wind: response.data.wind.speed,
             city: response.data.name
         });
     };
 
+    function search() {
+        const apiKey = "9cb72bec958f8fb02391985ed7b219d2";
+        let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        axios.get(apiUrl).then(handleResponse);
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        search();
+    }
+
+    function handleCityChange(event) {
+        setCity(event.target.value);
+    }
+
     if (weatherData.ready) {
         return (
             <div className="Weather">
             <div className="Form">
-            <form>
-              <input type="search" placeholder="Enter a city..." className="field-search" autoFocus="on" />
-              <input type="Submit" value="Search" className="btn-search btn-primary " />
+            <form onSubmit={handleSubmit} name="search-field">
+              <input type="search" placeholder="Enter a city..." className="field-search" autoFocus="on" name="search-field" onChange={handleCityChange}/>
+              <input type="Submit" value="Search" className="btn-search btn-primary " name="search-field"/>
             </form>
            </div> 
-               <h2>{weatherData.city}</h2>
-               <p>
-                 <FormattedDate date={weatherData.Date} />
-               </p>
-               <br />
-               <div className="row">
-                   <div className="col-4">
-                       <span>
-                           <img src={weatherData.iconUrl} alt="Cloud" /> <br /> <span className="description text-capitalize">{weatherData.Description}</span>
-                       </span>
-                   </div>
-                       <div className="col-4">
-                       <span>
-                           <p className="temp">{Math.round(weatherData.Temperature)}<span className="celcius">°C</span></p>
-                       </span>
-                       </div>
-                   <div className="col-4">
-                       <span>
-                           <p className="deatils"><br />Humidity: <strong>{weatherData.Humidity}</strong>% <br /> Wind: <strong>{weatherData.Wind}</strong>km/h</p>
-                       </span>
-                   </div>
-               </div>
+           <WeatherInfo data={weatherData} />
            </div>
         );
     } else {
-          const apiKey = "9cb72bec958f8fb02391985ed7b219d2";
-          let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
-          axios.get(apiUrl).then(handleResponse);
+        search();
 
-          return "Loading...";
+        return "Loading...";
     }
 }
