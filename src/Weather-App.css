@@ -33,13 +33,13 @@
 .temp {
     font-size: 80px;
     color: rgb(111, 110, 110);
-    line-height: 0.9;    
+    line-height: 1;    
     padding-left: 30px;
 }
 
 .celcius {
     font-size: 20px;
-    vertical-align: 240%;
+    vertical-align: 220%;
     padding-left: 5px;
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Weather-App.css"
+import FormattedDate from "./FormattedDate"
 import axios from "axios";
 
 export default function Weather(props) {
@@ -10,7 +11,7 @@ export default function Weather(props) {
             ready: true,
             Temperature: response.data.main.temp,
             Humidity: response.data.main.humidity,
-            Date: "Monday. 6:10 am",
+            Date: new Date(response.data.dt * 1000),
             Description: response.data.weather[0].description,
             iconUrl: "https://r.bing.com/rp/sdSac_zQw5gLMvPI61xKmFWSP1c.svg",
             Wind: response.data.wind.speed,
@@ -23,13 +24,13 @@ export default function Weather(props) {
             <div className="Weather">
             <div className="Form">
             <form>
-              <input type="search" placeholder="Enter a city..." className="field-search" autoFocus="on"/>
+              <input type="search" placeholder="Enter a city..." className="field-search" autoFocus="on" />
               <input type="Submit" value="Search" className="btn-search btn-primary " />
             </form>
            </div> 
                <h2>{weatherData.city}</h2>
                <p>
-                   {weatherData.Date}
+                 <FormattedDate date={weatherData.Date} />
                </p>
                <br />
                <div className="row">
