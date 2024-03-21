@@ -1,0 +1,13 @@
+.WeatherForecast {
+    text-align: center;
+}
+
+.temp-min {
+    opacity: 0.6;
+    margin-left: 5px;
+}
+
+.forecast-divider {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
